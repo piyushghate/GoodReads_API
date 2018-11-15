@@ -1,10 +1,14 @@
 import urllib.request
 # import xml.etree.ElementTree as ET
 from xml.dom import minidom
+# import xmltodict
+# import json
+# from lxml.etree import fromstring
+# import xmljson
 
 # import xmltodict
 
-url = 'https://www.goodreads.com/book/show/12177850.xml?key=XX'
+url = 'https://www.goodreads.com/book/show/12177850.xml?key=VugSymVo7nXix0hvwXr0w'
 
 # with urllib.request.urlopen("https://www.goodreads.com/book/show/12177850.xml?key=XXX") as url:
     # data = url.read()
@@ -45,7 +49,7 @@ image_url = dom.getElementsByTagName('image_url')[0]
 # print('image_url: ', image_url.firstChild.data)
 publication_year = dom.getElementsByTagName('original_publication_year')[0]
 # print('publication_year: ', publication_year.firstChild.data)
-# authors = dom.getElementsByTagName('name')[0]
+authors = dom.getElementsByTagName('name')[0]
 # print('authors: ', authors.firstChild.data)
 
 
@@ -61,22 +65,39 @@ book = {
     'num_pages': int(pages.firstChild.data),
     'image_url': image_url.firstChild.data,
     'publication_year': publication_year.firstChild.data,
-    # 'authors': authors.firstChild.data,
+    'authors': authors.firstChild.data,
 }
 
 print(book)
 
-list1 = []
-authors = dom.getElementsByTagName('authors')
-x = 0
-for authors2 in authors:
-    author = authors2.getElementsByTagName('name')[0]
-    # print(author.firstChild.data)
-    list1.append(author.firstChild.data)
-    x += 1
-    if (x == 2):
-        break
+# list1 = []
+# authors = dom.getElementsByTagName('book/authors/')
+# # x = 0
+# for authors2 in authors:
+#     author = authors2.getElementsByTagName('name')[0]
+#     # print(author.firstChild.data)
+#     list1.append(author.firstChild.data)
+#     # x += 1
+#     # if (x == 2):
+#     #     break
 
-print(str(list1))
-print(len(list1))
-print(str("%s, %s" % (list1[0], list1[1])))
+# print(str(list1))
+# print(len(list1))
+# print(str("%s, %s" % (list1[0], list1[1])))
+
+# for author in authors:
+
+#     name = author.getElementsByTagName("name")[0].childNodes[0].data
+#     print (name)
+
+# for node in tree.findall('.//book/authors/author/name'):
+#     print (node.tag) 
+#     print (node.attrib)
+#     print (node.text) 
+
+
+# o = xmltodict.parse(dom)
+
+# xml = fromstring(dom)
+
+# data = xmljson.badgerfish.data(dom)
