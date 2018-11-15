@@ -4,7 +4,7 @@ from xml.dom import minidom
 
 # import xmltodict
 
-url = 'https://www.goodreads.com/book/show/12177850.xml?key=VugSymVo7nXix0hvwXr0w'
+url = 'https://www.goodreads.com/book/show/12177850.xml?key=XXX'
 
 # with urllib.request.urlopen("https://www.goodreads.com/book/show/12177850.xml?key=XXX") as url:
     # data = url.read()
@@ -56,9 +56,9 @@ authors = dom.getElementsByTagName('name')[0]
 
 book = {
     'title': title.firstChild.data,
-    'average_rating': average_rating.firstChild.data,
-    'ratings_count': ratings_count.firstChild.data,
-    'num_pages': pages.firstChild.data,
+    'average_rating': float(average_rating.firstChild.data),
+    'ratings_count': int(ratings_count.firstChild.data),
+    'num_pages': int(pages.firstChild.data),
     'image_url': image_url.firstChild.data,
     'publication_year': publication_year.firstChild.data,
     'authors': authors.firstChild.data,
