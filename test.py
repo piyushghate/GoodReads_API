@@ -4,9 +4,9 @@ from xml.dom import minidom
 
 # import xmltodict
 
-url = 'https://www.goodreads.com/book/show/12177850.xml?key=XXX'
+url = 'https://www.goodreads.com/book/show/12177850.xml?key=VugSymVo7nXix0hvwXr0w'
 
-# with urllib.request.urlopen("https://www.goodreads.com/book/show/12177850.xml?key=VugSymVo7nXix0hvwXr0w") as url:
+# with urllib.request.urlopen("https://www.goodreads.com/book/show/12177850.xml?key=XXX") as url:
     # data = url.read()
 
 dom = minidom.parse(urllib.request.urlopen(url))
@@ -34,22 +34,34 @@ dom = minidom.parse(urllib.request.urlopen(url))
 # dom = minidom.parse(data)
 
 title = dom.getElementsByTagName('title')[0]
-print('title: ',title.firstChild.data)
+# print('title: ',title.firstChild.data)
 average_rating = dom.getElementsByTagName('average_rating')[0]
-print('average_rating: ', average_rating.firstChild.data)
+# print('average_rating: ', average_rating.firstChild.data)
 ratings_count = dom.getElementsByTagName('ratings_count')[1]
-print('ratings_count: ', ratings_count.firstChild.data)
+# print('ratings_count: ', ratings_count.firstChild.data)
 pages = dom.getElementsByTagName('num_pages')[0]
-print('num_pages: ', pages.firstChild.data)
+# print('num_pages: ', pages.firstChild.data)
 image_url = dom.getElementsByTagName('image_url')[0]
-print('image_url: ', image_url.firstChild.data)
+# print('image_url: ', image_url.firstChild.data)
 publication_year = dom.getElementsByTagName('original_publication_year')[0]
-print('publication_year: ', publication_year.firstChild.data)
+# print('publication_year: ', publication_year.firstChild.data)
 authors = dom.getElementsByTagName('name')[0]
-print('authors: ', authors.firstChild.data)
+# print('authors: ', authors.firstChild.data)
 
 
 # publication_year = dom.getElementsByTagName('work')
 # for years in publication_year:
 #     pyears = years.getElementsByTagName('publication_year')
 #     print('publication_year: ', pyears)
+
+book = {
+    'title': title.firstChild.data,
+    'average_rating': average_rating.firstChild.data,
+    'ratings_count': ratings_count.firstChild.data,
+    'num_pages': pages.firstChild.data,
+    'image_url': image_url.firstChild.data,
+    'publication_year': publication_year.firstChild.data,
+    'authors': authors.firstChild.data,
+}
+
+print(book)
