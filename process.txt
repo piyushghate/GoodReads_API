@@ -1,0 +1,11 @@
+1. Playing with goodreads api and getting familiar
+2. getting used to xml 
+3. playing with ElementTree : https://www.datacamp.com/community/tutorials/python-xml-elementtree
+4. ElementTree not working.
+5. Dom working with goodreads xml urls:
+   https://www.mkyong.com/python/python-read-xml-file-dom-example/ 
+6. Made the output work with dom.
+7. Output as dict.
+8. variable types in output updated.
+9. Need to work for multiple authors…This is not working after too much try...will work on this last.
+10.Working on input(playing with Regex)
