@@ -28,7 +28,6 @@ url = 'https://www.goodreads.com/book/show/12067.xml?key=XXX'
 # Mr Smith
 # Ms Davis
 # Mrs. Robinson
-# Mr. T
 # '''
 
 # sentence = 'Start a sentence and then bring it to an end'
