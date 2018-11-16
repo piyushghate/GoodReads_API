@@ -32,7 +32,7 @@ url = 'https://www.goodreads.com/book/show/12067-Good_Omens'
 
 # sentence = 'Start a sentence and then bring it to an end'
 
-pattern = re.compile(r'https://www.goodreads.com/book/show/\d+[.-]', re.I)
+pattern = re.compile(r'https://www.goodreads.com/book/show/\d+[.]', re.I)
 
 # pattern = re.compile(r'show/\d+.', re.I)
 

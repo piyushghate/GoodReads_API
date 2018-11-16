@@ -8,4 +8,4 @@ with urllib.request.urlopen("https://www.goodreads.com/book/show/12177850.xml?ke
 
 data = xmltodict.parse(data)
 # print(render_to_response('my_template.html', {'data': data}))
-print(data[GoodreadsResponse][Request])
+print(data['GoodreadsResponse']['book']['id'])
