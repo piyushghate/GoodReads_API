@@ -59,6 +59,7 @@ def get_book_details(user_passed_url):
         return "InvalidGoodreadsURL"
 
 
-# 12067
-# 12177850
-print(get_book_details("https://www.goodreads.com/book/show/12067.Good_Omens"))
+# "https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire"
+# "https://www.goodreads.com/book/show/12067.Good_Omens"
+user_input = input('Please enter valid goodreads url: ')
+print(get_book_details(user_input))
