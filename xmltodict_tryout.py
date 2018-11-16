@@ -42,5 +42,10 @@ print(image_url)
 publication_year = data['GoodreadsResponse']['book']['work']['original_publication_year']['#text']
 print(publication_year)
 authors = get_authors()
-print(authors)
+print(type(authors))
 
+if (type(authors) !=  str):
+    length = len(authors)
+    print(length)
+    print(', '.join(authors))
+    

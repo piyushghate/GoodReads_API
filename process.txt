@@ -15,4 +15,5 @@ https://github.com/CoreyMSchafer/code_snippets/tree/master/Python-Regular-Expres
 12. making changes in the main.py
 13. url error handling
 14. xmltodict for authors...completed(https://stackoverflow.com/questions/40154727/how-to-use-xmltodict-to-get-items-out-of-an-xml-file)
-15. Making main with xmltodict
+15. Making main with xmltodict...completed
+16. coverting multiple authors to string(https://stackoverflow.com/questions/12453580/concatenate-item-in-list-to-strings)

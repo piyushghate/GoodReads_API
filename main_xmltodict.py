@@ -11,7 +11,7 @@ def get_book_details(user_passed_url):
             list1 = []
             for author in data['GoodreadsResponse']['book']['authors']['author']:
                 list1.append(author['name'])
-            return list1
+            return (', '.join(list1))
         
         except :
             return data['GoodreadsResponse']['book']['authors']['author']['name']
@@ -59,5 +59,6 @@ def get_book_details(user_passed_url):
         return "InvalidGoodreadsURL"
 
 
-
+# 12067
+# 12177850
 print(get_book_details("https://www.goodreads.com/book/show/12067.Good_Omens"))
