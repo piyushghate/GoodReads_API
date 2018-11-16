@@ -1,6 +1,6 @@
 import re
 
-url = 'https://www.goodreads.com/book/show/12067.xml?key=XXX'
+url = 'https://www.goodreads.com/book/show/12067-Good_Omens'
 
 # pattern = re.compile(r'https://www.goodreads.com/book/show/\d')
 
@@ -32,24 +32,28 @@ url = 'https://www.goodreads.com/book/show/12067.xml?key=XXX'
 
 # sentence = 'Start a sentence and then bring it to an end'
 
-# pattern = re.compile(r'https://www.goodreads.com/book/show/\d+.', re.I)
+pattern = re.compile(r'https://www.goodreads.com/book/show/\d+[.-]', re.I)
 
-pattern = re.compile(r'show/\d+.', re.I)
+# pattern = re.compile(r'show/\d+.', re.I)
 
-# matches = pattern.search(url)
+matches = pattern.search(url)
 
-matches = pattern.findall(url)[0]
+# matches = pattern.findall(url)[0]
 
 print(matches)
 
+if (matches):
+    print(True)
+else:
+    print(False)
 
 #  print(matches.span())
 
 # print (a)
 # print (b)
 
-bookID = re.compile(r'\d+', re.I)
-matches2 = bookID.findall(matches)[0]
-print(matches2)
+# bookID = re.compile(r'\d+', re.I)
+# matches2 = bookID.findall(matches)[0]
+# print(matches2)
 
 # print (url[36:44])
