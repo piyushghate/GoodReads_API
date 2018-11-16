@@ -4,17 +4,6 @@ from hold_key import GoodReads_key
 import xmltodict
 
 
-def get_authors():
-    try:
-        list1 = []
-        for author in data['GoodreadsResponse']['book']['authors']['author']:
-            list1.append(author['name'])
-        return list1
-        
-    except :
-        return data['GoodreadsResponse']['book']['authors']['author']['name']
-
-
 def get_book_details(user_passed_url):
     
     def get_authors():
