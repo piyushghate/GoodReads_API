@@ -15,12 +15,11 @@ class GoodReadsAPIClient:
         self.image_url = None
         self.publication_year = None
         self.authors = None
-        self.get_book_details()
        
     def get_book_details(self):
 
-        print(self.url)
-        print(type(self.url))
+        # print(self.url)
+        # print(type(self.url))
         def get_authors():
             try:
                 list1 = []
@@ -74,6 +73,11 @@ class GoodReadsAPIClient:
             return "InvalidGoodreadsURL"
 
 
-# print(get_book_details("https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire"))
 
-book1 = GoodReadsAPIClient("https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire")
+# "https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire"
+# "https://www.goodreads.com/book/show/12067.Good_Omens"
+
+input_from_user = input('Please mention a valid GoodReads url for book info: ')
+book1 = GoodReadsAPIClient(input_from_user)
+
+print(GoodReadsAPIClient.get_book_details(book1))
