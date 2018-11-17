@@ -17,3 +17,6 @@ https://github.com/CoreyMSchafer/code_snippets/tree/master/Python-Regular-Expres
 14. xmltodict for authors...completed(https://stackoverflow.com/questions/40154727/how-to-use-xmltodict-to-get-items-out-of-an-xml-file)
 15. Making main with xmltodict...completed
 16. coverting multiple authors to string(https://stackoverflow.com/questions/12453580/concatenate-item-in-list-to-strings)
+17. Working on class..
+18. need to call method in init method of class (https://stackoverflow.com/questions/12646326/calling-a-class-function-inside-of-init)
+https://stackoverflow.com/questions/27654671/member-variable-string-gets-treated-as-tuple-in-python
