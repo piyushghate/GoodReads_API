@@ -1,13 +1,13 @@
 import urllib.request
 import re
-from hold_key import GoodReads_key
+from hold_key import GoodReads_key      # key saved in different file
 import xmltodict
 
 
 class GoodReadsAPIClient:
 
     def __init__(self, url):
-        self.url = url
+        self.url = url                  # Url from user
         self.title = None
         self.average_rating = None
         self.ratings_count = None
@@ -18,36 +18,34 @@ class GoodReadsAPIClient:
        
     def get_book_details(self):
 
-        # print(self.url)
-        # print(type(self.url))
         def get_authors():
-            try:
+            try:           # if output from below code is list/array    
                 list1 = []
                 for author in data['GoodreadsResponse']['book']['authors']['author']:
                     list1.append(author['name'])
                 return (', '.join(list1))
         
-            except :
+            except :        # if output from below code is string
                 return data['GoodreadsResponse']['book']['authors']['author']['name']
 
-        # pattern = re.compile(r'show/\d+.', re.I)
         pattern = re.compile(r'https://www.goodreads.com/book/show/\d+[.-]', re.I)
-        matches = pattern.search(self.url)
+        matches = pattern.search(self.url)      # search for the above pattern in url
 
-        if (matches):
-            matches2 = pattern.findall(self.url)[0]
-            bookID = re.compile(r'\d+', re.I)
-            matches2 = bookID.findall(matches2)[0]
+        if (matches):       # if its a valid url
+            matches2 = pattern.findall(self.url)[0]     # returns the string with the match
             
-            # print("BookID: ",matches2)
+            # get the number(bookid) from returned string
+            bookID = re.compile(r'\d+', re.I)           
+            matches3 = bookID.findall(matches2)[0]      
 
-            url1 = "https://www.goodreads.com/book/show/"+matches2+".xml?key="+GoodReads_key
+            url1 = "https://www.goodreads.com/book/show/"+matches3+".xml?key="+GoodReads_key
 
-            with urllib.request.urlopen(url1) as url:
-                data = url.read()
+            with urllib.request.urlopen(url1) as url:   
+                xmldata = url.read()       # content from webpage to data
 
-            data = xmltodict.parse(data)
+            data = xmltodict.parse(xmldata)    # convert the xml content to dictionary
 
+            #  get the required text from the dictionary
             self.title = data['GoodreadsResponse']['book']['title']
             self.average_rating = data['GoodreadsResponse']['book']['average_rating']
             self.ratings_count = data['GoodreadsResponse']['book']['ratings_count']
@@ -56,6 +54,7 @@ class GoodReadsAPIClient:
             self.publication_year = data['GoodreadsResponse']['book']['work']['original_publication_year']['#text']
             self.authors = get_authors()
 
+            # dict holding the above content and converting to the required format
             book = {
                 'title': self.title,
                 'average_rating': float(self.average_rating),
@@ -71,13 +70,3 @@ class GoodReadsAPIClient:
 
         else:
             return "InvalidGoodreadsURL"
-
-
-
-# "https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire"
-# "https://www.goodreads.com/book/show/12067.Good_Omens"
-
-input_from_user = input('Please mention a valid GoodReads url for book info: ')
-book1 = GoodReadsAPIClient(input_from_user)
-
-print(GoodReadsAPIClient.get_book_details(book1))
