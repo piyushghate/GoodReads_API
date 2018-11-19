@@ -1,0 +1,1 @@
+GoodReads_key = 'VugSymVo7nXix0hvwXr0w'
