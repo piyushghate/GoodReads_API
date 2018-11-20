@@ -1,0 +1,7 @@
+1. docker build  -t flask-sample-one .   # Create doker image from Dockerfile
+2. docker run -d -p 5000:5000 flask-sample-one # run the container with image flask-sample-one(or use image ID)
+
+3. docker ps -aq # list all the containers with only IDs
+4. docker stop $(docker ps -aq) # stop all running containers
+5. docker rm $(docker ps -aq) # remove all containers
+6. docker rmi $(docker images -q)	# remove all images
