@@ -5,3 +5,5 @@
 4. docker stop $(docker ps -aq) # stop all running containers
 5. docker rm $(docker ps -aq) # remove all containers
 6. docker rmi $(docker images -q)	# remove all images
+7. docker exec -it <container id> /bin/bash  #enter bash in 
+docker container
